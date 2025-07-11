@@ -1,0 +1,270 @@
+/* =================================================================== */
+/* 1. GLOBAL STYLES & CSS VARIABLES (FOR SITE-WIDE CONSISTENCY)        */
+/* =================================================================== */
+
+:root {
+    /* Color Palette */
+    --primary-green: #00ff00;
+    --dark-bg: #111115;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --discord-blue: #5865F2;
+
+    /* Glassmorphism Settings */
+    --glass-bg-color: rgba(255, 255, 255, 0.08);
+    --glass-blur: 12px;
+    --glass-border-color: rgba(255, 255, 255, 0.15);
+
+    /* Sizing & Spacing */
+    --border-radius-main: 24px;
+    --border-radius-card: 16px;
+    --border-radius-pill: 50px;
+}
+
+body {
+    background-color: var(--dark-bg);
+    background-image: radial-gradient(circle at top, rgba(30, 40, 50, 0.8), transparent 70%);
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* =================================================================== */
+/* 2. THE REUSABLE GLASS EFFECT                                        */
+/* =================================================================== */
+
+.glass-effect {
+    background: var(--glass-bg-color);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border-color);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+
+/* =================================================================== */
+/* 3. MENU BAR (HEADER)                                                */
+/* =================================================================== */
+
+.menu-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+    width: clamp(300px, 60%, 600px);
+    padding: 5px 25px;
+    margin-bottom: 50px;
+    border-radius: var(--border-radius-pill);
+    transition: box-shadow 0.3s ease;
+}
+
+.menu-bar:hover {
+    box-shadow: 0 10px 40px rgba(0, 255, 0, 0.25);
+}
+
+.menu-bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.menu-bar li { margin: 0 5px; }
+
+.menu-bar a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: var(--border-radius-pill);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: block;
+}
+
+.menu-bar a:hover {
+    background-color: rgba(0, 255, 0, 0.15);
+    color: var(--primary-green);
+}
+
+.menu-logo { height: 35px; opacity: 0.9; z-index: 2; }
+
+
+/* =================================================================== */
+/* 4. MAIN CONTAINER & CONTENT                                         */
+/* =================================================================== */
+
+.container {
+    padding: 40px;
+    border-radius: var(--border-radius-main);
+    max-width: 650px;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 255, 0, 0.5);
+}
+
+h1 {
+    color: var(--primary-green);
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-shadow: 0 0 12px rgba(0, 255, 0, 0.7);
+}
+
+.instructions {
+    font-size: 1em;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* Base Textarea for pages WITHOUT the input group */
+textarea {
+    width: 100%;
+    min-height: 24px;
+    max-height: 30px;
+    height: 28px;
+    resize: none;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border-color);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    padding: 4px 15px;
+    margin-bottom: 25px;
+    box-sizing: border-box;
+    font-family: Consolas, monospace;
+    font-size: 0.9em;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+/* =================================================================== */
+/* 5. BUTTONS, LINKS & STATUS MESSAGES                                 */
+/* =================================================================== */
+
+button, .linkbtn, .cta-button {
+    background: linear-gradient(45deg, var(--primary-green), #00aa00);
+    color: #111;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-radius: var(--border-radius-pill);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 255, 0, 0.3);
+    margin-bottom: 30px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover, .linkbtn:hover, .cta-button:hover {
+    box-shadow: 0 8px 25px rgba(0, 255, 0, 0.5);
+    transform: translateY(-3px);
+}
+
+#statusMessage { margin-top: 20px; min-height: 20px; font-weight: bold; font-size: 1.1em; }
+#statusMessage.success { color: #4CAF50; }
+#statusMessage.error { color: #ff4d4d; }
+#statusMessage.processing { color: var(--primary-green); }
+
+
+/* =================================================================== */
+/* 6. VIDEO & OTHER ELEMENTS                                           */
+/* =================================================================== */
+
+.video-container {
+    margin-top: 25px;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    border-radius: var(--border-radius-card);
+    border: 1px solid var(--glass-border-color);
+}
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--border-radius-card); }
+
+/* =================================================================== */
+/* 7. NEW STYLES FOR OLD SERVER FINDER PAGE                            */
+/* =================================================================== */
+
+.input-group {
+    display: flex;
+    margin-bottom: 40px;
+}
+.input-group textarea {
+    flex-grow: 1; /* Take up remaining space */
+    margin-bottom: 0; /* Remove default margin */
+    border-radius: var(--border-radius-pill) 0 0 var(--border-radius-pill); /* Round left corners */
+    border-right: none; /* Remove border between elements */
+    height: 55px; /* Taller input field */
+    min-height: 55px;
+    max-height: 55px;
+    padding-top: 16px; /* Adjust padding for vertical centering */
+    font-size: 1em;
+}
+.input-group-button {
+    margin-bottom: 0;
+    border-radius: 0 var(--border-radius-pill) var(--border-radius-pill) 0; /* Round right corners */
+    height: 55px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 25px; /* Adjust padding */
+}
+
+.results-area {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--glass-border-color);
+    border-radius: var(--border-radius-card);
+    padding: 25px;
+    text-align: left;
+    min-height: 100px;
+}
+.results-area h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--primary-green);
+    opacity: 0.8;
+}
+.results-area #statusMessage {
+    margin: 0;
+    color: var(--text-secondary);
+    font-weight: normal;
+    font-style: italic;
+}
