@@ -1,0 +1,438 @@
+/* =================================================================== */
+/* 1. GLOBAL STYLES & CSS VARIABLES                                    */
+/* =================================================================== */
+
+:root {
+    /* Color Palette */
+    --primary-green: #00ff00;
+    --dark-bg: #111115;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --discord-blue: #7289DA;
+
+    /* Glassmorphism Settings */
+    --glass-bg-color: rgba(255, 255, 255, 0.08);
+    --glass-blur: 12px;
+    --glass-border-color: rgba(255, 255, 255, 0.15);
+
+    /* Sizing & Spacing */
+    --border-radius-main: 24px;
+    --border-radius-card: 16px;
+    --header-height: 65px;
+}
+
+body {
+    background-color: var(--dark-bg);
+    background-image: radial-gradient(circle at top, rgba(30, 40, 50, 0.8), transparent 70%);
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    line-height: 1.7;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* =================================================================== */
+/* 2. THE GLASS EFFECT (CORE OF THE REVAMP)                            */
+/* =================================================================== */
+
+.glass-effect {
+    background: var(--glass-bg-color);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border-color);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* =================================================================== */
+/* 3. HEADER & NAVIGATION                                              */
+/* =================================================================== */
+
+.landing-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 25px;
+    height: var(--header-height);
+    margin: 20px 3%;
+    border-radius: 50px; 
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+
+    /* --- ANIMATION: Add fade-in for the header --- */
+    opacity: 0; /* Start invisible */
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+.header-logo-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 2; 
+}
+
+.logo {
+    height: 40px;
+    opacity: 0.9;
+    transition: transform 0.4s ease; /* Add transition for hover */
+}
+.logo:hover {
+    transform: rotate(360deg);
+}
+
+.header-logo-group span {
+    color: var(--primary-green);
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.header-nav {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 255, 0, 0.15);
+    color: var(--primary-green);
+    transform: translateY(-2px); /* Add slight lift on hover */
+}
+
+.discord-icon-link {
+    color: var(--discord-blue);
+    font-size: 1.8em;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+}
+
+.discord-icon-link:hover {
+    color: white;
+    transform: scale(1.1) rotate(-10deg); /* Add a slight tilt */
+}
+
+/* =================================================================== */
+/* 4. MAIN CONTENT & SECTIONS                                          */
+/* =================================================================== */
+
+.content-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section {
+    margin-bottom: 40px;
+    padding: 40px;
+    border-radius: var(--border-radius-main);
+    text-align: center;
+}
+
+/* Combining animations for floating and fade-in */
+.floating-soft {
+    opacity: 0; /* Start invisible */
+    animation: 
+        floatSoft 9s ease-in-out infinite,
+        fadeInUp 0.8s ease-out forwards;
+}
+.delay-1 { animation-delay: 0.3s, 0.3s; }
+.delay-2 { animation-delay: 0.6s, 0.6s; }
+.delay-3 { animation-delay: 0.9s, 0.9s; }
+.delay-4 { animation-delay: 1.2s, 1.2s; }
+.delay-5 { animation-delay: 1.5s, 1.5s; }
+
+
+.hero-section {
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.hero-section .highlight {
+    color: var(--primary-green);
+    /* --- ANIMATION: Add glowing effect --- */
+    animation: subtleGlow 2.5s ease-in-out infinite;
+}
+
+.hero-section .subtitle {
+    font-size: 1.2em;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.section-icon {
+    max-height: 80px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.tool-icon {
+    max-height: 70px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    /* --- ANIMATION: Add transition for hover effect --- */
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+h2 {
+    color: var(--primary-green);
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+p {
+    color: var(--text-secondary);
+    font-size: 1.1em;
+}
+
+.tools-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+    padding: 40px;
+    opacity: 0; /* Animate whole section */
+    animation: fadeInUp 0.8s ease-out 0.5s forwards;
+}
+
+.tools-section > h2, .tools-section > p {
+    grid-column: 1 / -1;
+}
+
+.tool-card {
+    padding: 30px;
+    border-radius: var(--border-radius-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tool-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 255, 0, 0.5);
+}
+/* --- ANIMATION: Enhance tool card hover --- */
+.tool-card:hover .tool-icon {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 10px var(--primary-green));
+}
+
+
+.tool-card h3 {
+    color: #fff;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.tool-card p {
+    color: var(--text-secondary);
+    font-size: 1em;
+    margin-bottom: 25px;
+}
+
+.trust-section ul {
+    list-style: none;
+    padding: 0;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+.trust-section li { 
+    margin-bottom: 15px; 
+    padding-left: 10px;
+    transition: transform 0.2s ease;
+}
+.trust-section li:hover {
+    transform: translateX(5px);
+}
+.trust-section strong { color: var(--primary-green); }
+
+
+/* =================================================================== */
+/* 5. BUTTONS & FOOTER                                                 */
+/* =================================================================== */
+
+.cta-button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.cta-button.primary {
+    background: linear-gradient(45deg, var(--primary-green), #00aa00);
+    color: #111;
+    border: none;
+    box-shadow: 0 4px 20px rgba(0, 255, 0, 0.3);
+    /* --- ANIMATION: Add pulsing effect --- */
+    animation: pulseButton 2s ease-in-out infinite;
+}
+
+.cta-button.primary:hover {
+    animation-play-state: paused; /* Pause pulse on hover */
+    box-shadow: 0 6px 25px rgba(0, 255, 0, 0.5);
+    transform: translateY(-3px) scale(1.05);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    color: var(--primary-green);
+    border: 2px solid var(--primary-green);
+}
+
+.cta-button.secondary:hover {
+    background-color: rgba(0, 255, 0, 0.15);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.cta-button.large {
+    padding: 18px 45px;
+    font-size: 1.3em;
+}
+
+.landing-footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+    color: #888;
+    font-size: 0.9em;
+    border-radius: var(--border-radius-main);
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1.8s forwards;
+}
+
+
+/* =================================================================== */
+/* 6. RESPONSIVE ADJUSTMENTS (Unchanged)                               */
+/* =================================================================== */
+
+@media (max-width: 920px) {
+    .tools-section { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+    .hero-section h1 { font-size: 2.5em; }
+    h2 { font-size: 1.8em; }
+    section { padding: 30px 25px; }
+    .landing-header { flex-direction: column; height: auto; padding: 15px; gap: 15px; margin: 15px; top: 15px; }
+    .header-nav { position: static; transform: none; }
+}
+@media (max-width: 600px) {
+    .tools-section { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+    .hero-section h1 { font-size: 2em; }
+    .hero-section .subtitle { font-size: 1em; }
+    .cta-button { font-size: 1em; padding: 12px 25px; }
+    .cta-button.large { font-size: 1.1em; padding: 15px 35px; }
+    .landing-header { margin: 10px; top: 10px; }
+}
+
+/* =================================================================== */
+/* 7. ENHANCED TOOLS SECTION STYLES (Unchanged)                        */
+/* =================================================================== */
+
+.tools-section .section-subtitle {
+    grid-column: 1 / -1; 
+    font-size: 1.1em;
+    color: var(--text-secondary);
+    margin-top: -15px; 
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tool-card {
+    position: relative;
+    overflow: hidden; 
+}
+.tool-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 255, 0, 0.15);
+    color: var(--primary-green);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+.tool-card:hover .tool-badge {
+    transform: scale(1.1);
+}
+
+/* =================================================================== */
+/* 8. NEW ANIMATIONS                                                   */
+/* =================================================================== */
+
+/* The soft floating animation (already existed) */
+@keyframes floatSoft {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* New animation for fading elements in and sliding up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* New animation for the glowing text effect */
+@keyframes subtleGlow {
+    0%, 100% { text-shadow: 0 0 15px rgba(0, 255, 0, 0.7); }
+    50% { text-shadow: 0 0 25px rgba(0, 255, 0, 1); }
+}
+
+/* New animation for the pulsing primary button */
+@keyframes pulseButton {
+    0% { transform: scale(1); box-shadow: 0 4px 20px rgba(0, 255, 0, 0.3); }
+    50% { transform: scale(1.03); box-shadow: 0 6px 25px rgba(0, 255, 0, 0.5); }
+    100% { transform: scale(1); box-shadow: 0 4px 20px rgba(0, 255, 0, 0.3); }
+}
