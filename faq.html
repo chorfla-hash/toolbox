@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | ToolBlox Shield</title>
+    <!-- Link to the shared CSS file -->
+    <link rel="stylesheet" href="sections_style.css">
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- The same particle background for consistency -->
+    <div id="particles-js"></div>
+
+    <main class="main-content">
+        <!-- Back Button stays for navigation -->
+        <div class="back-button-container">
+            <a href="index.html" class="back-button glass-effect">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
+
+        <!-- HERO SECTION: The opening trust statement -->
+        <section class="page-hero glass-effect">
+            <i class="hero-icon fa-solid fa-circle-question"></i>
+            <h1>Frequently Asked Questions</h1>
+            <p class="hero-subtitle">Your security and confidence are paramount. Here are answers to common questions about ToolBlox Shield.</p>
+        </section>
+
+        <!-- FAQ ACCORDION SECTION -->
+        <div class="faq-accordion glass-effect">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Q: Is ToolBlox Shield safe to use?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>A: Absolutely! Our tools prioritize your account security using cutting-edge techniques. We never ask for your password.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Q: How does the Voice Chat verification work?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>A: We utilize a secure, external verification method that complies with platform guidelines to enable Voice Chat features for eligible users.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Q: What are the system requirements?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>A: Our tools are designed to be lightweight. As long as you can run Roblox smoothly, you should have no issues using ToolBlox Shield.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Q: What if I encounter an issue?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>A: Our dedicated support team is ready to help! Reach out via Discord or email (see our Contact page).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT CALL TO ACTION SECTION -->
+        <section class="faq-contact-cta glass-effect">
+            <h2>Need More Help?</h2>
+            <p>Our team is active and ready to help. For the fastest response, please join our official Discord community.</p>
+            <a href="https://discord.com/invite/zxWNcD4GVv" target="_blank" class="cta-button discord-button">
+                <i class="fab fa-discord"></i> Join our Discord
+            </a>
+        </section>
+        
+    </main>
+
+    <!-- This self-contained script powers the accordion. It's safe. -->
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                if (!isActive) {
+                    item.classList.add('active');
+                    question.querySelector('i').className = 'fas fa-minus';
+                } else {
+                    item.classList.remove('active');
+                    question.querySelector('i').className = 'fas fa-plus';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
