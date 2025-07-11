@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Example for local backend: 'http://localhost:3000/fetchRobloxLoot'
     // Example for Netlify Function: '/.netlify/functions/fetchRobloxLoot' (if frontend also on Netlify)
     // Example for Glitch: 'https://your-stupid-glitch-name.glitch.me/fetchRobloxLoot'
-    const YOUR_BACKEND_ENDPOINT_URL = 'http://localhost:3000/fetchRobloxLoot'; // <<<<---- YOU. MUST. CHANGE. THIS.
+    const YOUR_BACKEND_ENDPOINT_URL = 'https://toolbox-backend1.onrender.com/fetchRobloxLoot'; // <<<<---- YOU. MUST. CHANGE. THIS.
     // =================================================================================
 
     async function getTheUsersPatheticPublicIP() {
