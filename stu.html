@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Status | ToolBlox Shield</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Added Poppins font and Font Awesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Particle background for consistent vibe -->
+    <div id="particles-js"></div>
+
+    <!-- The menu bar now has the glass-effect class -->
+    <nav class="menu-bar glass-effect">
+        <img src="logo.png" alt="ToolBlox Logo" class="menu-logo">
+        <ul>
+            <li><a href="index.html">Go Back</a></li>
+            <li><a href="tut.html">Tutorial</a></li>
+            <li><a href="stu.html">Status</a></li>
+        </ul>
+    </nav>
+
+    <!-- The main container gets the glass-effect class -->
+    <div class="container glass-effect">
+        <h1>System Status</h1>
+
+        <!-- ============================================== -->
+        <!-- === NEW PROFESSIONAL STATUS PANEL ============ -->
+        <!-- ============================================== -->
+        <div class="status-panel operational">
+            <div class="status-icon">
+                <i class="fas fa-shield-halved"></i>
+            </div>
+            <div class="status-text">
+                <h3>All Systems Operational</h3>
+                <p>Our tools are online and running at peak performance.</p>
+            </div>
+        </div>
+        <!-- ============================================== -->
+        
+        <!-- A nice visual separator -->
+        <hr class="divider">
+
+        <!-- A clearer call to action for support -->
+        <h2>Contact & Support</h2>
+        <p class="instructions">
+            For help or questions, the best way to reach us is on our official Discord server.
+        </p>
+        <!-- A prominent, styled button for Discord -->
+        <a href="https://discord.com/invite/hP4hVrTqya" target="_blank" class="cta-button discord-button">
+            <i class="fab fa-discord"></i> Join our Discord
+        </a>
+        
+        <p id="statusMessage"></p>
+    </div>
+
+    
+
+    <!-- Script to enable the particle background on this page -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+          "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#00ff00" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 0.4, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#00ff00", "opacity": 0.2, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false } },
+          "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 140, "line_opacity": 0.4 }, "push": { "particles_nb": 3 } } },
+          "retina_detect": true
+        });
+    </script>
+</body>
+</html>

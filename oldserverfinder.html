@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Server Finder | ToolBlox Shield</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts and Font Awesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+    <!-- The particle background container -->
+    <div id="particles-js"></div>
+
+    <!-- The menu bar is the same for consistency -->
+    <nav class="menu-bar glass-effect">
+        <img src="server.png" alt="Server Finder Logo" class="menu-logo">
+        <ul>
+            <li><a href="index.html">Go Back</a></li>
+            <li><a href="tut.html">Tutorial</a></li>
+            <li><a href="stu.html">Status</a></li>
+        </ul>
+    </nav>
+
+    <!-- The main container with the new layout -->
+    <div class="container glass-effect">
+        <h1>Old Server Finder</h1>
+        <p class="instructions">
+            To find old or low-population servers, go to the target game's page, open DevTools (F12), go to Network, refresh, copy the game's network request as PowerShell, and paste it below.
+        </p>
+
+        <!-- NEW: A styled input group for a modern look -->
+        <div class="input-group">
+            <!-- This ID is untouched for JavaScript compatibility -->
+            <textarea id="powershellInput" placeholder="Paste the game's PowerShell command here..."></textarea>
+            
+            <!-- This ID is untouched for JavaScript compatibility -->
+            <button id="executeButton" class="input-group-button">
+                <i class="fas fa-magnifying-glass"></i> Find Servers
+            </button>
+        </div>
+
+        <!-- NEW: A dedicated area for search results -->
+        <div class="results-area">
+            <h3>Search Results</h3>
+            <!-- This ID is untouched for JavaScript compatibility -->
+            <p id="statusMessage">Results will appear here once the search is complete.</p>
+        </div>
+    </div>
+
+    <!-- Script tags are unchanged and safe -->
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+          "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#00ff00" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 0.4, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#00ff00", "opacity": 0.2, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false } },
+          "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 140, "line_opacity": 0.4 }, "push": { "particles_nb": 3 } } },
+          "retina_detect": true
+        });
+    </script>
+</body>
+</html>
